@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# First we'll start by collecting all the code we need from the libs.
+source ./lib/help.bash
+source ./lib/setup.bash
+source ./lib/mob.bash
+
+if [[ ! -d "$MOBBING_HOME" ]] ; then
+  setup
+elif [[ $# -eq 3 && $1 = "-a" ]] ; then
+  add_author $2 "$3"
+  echo "Adding $3 to the list of mobbing authors"
+elif [[ $@ = "-v" ]] ; then
+  echo "Mobbing v$(mob_version)"
+elif [ $# -eq 0 ] ; then
+  help
+else
+  do_the_mob $@
+fi
+
