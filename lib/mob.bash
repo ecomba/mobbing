@@ -4,6 +4,7 @@ VERSION="0.1.0"
 export MOBBING_HOME=~/.mob
 export GROUP_MAIL=$MOBBING_HOME/groupmail
 export AUTHORS=$MOBBING_HOME/authors
+export CURRENT_MOB=$MOBBING_HOME/current_mob
 __git_author_names=""
 __git_author_emails=""
 
@@ -53,12 +54,11 @@ add_pairing_author() {
 }
 
 setup_current_mob() {
-
   author_names="export GIT_AUTHOR_NAME='${__git_author_names:5}'"
   author_emails="export GIT_AUTHOR_EMAIL='${__git_author_emails}$(group_mail)'"
 
-  echo $author_emails > $MOBBING_HOME/current_mob
-  echo $author_names >> $MOBBING_HOME/current_mob
+  echo $author_emails > $CURRENT_MOB
+  echo $author_names >> $CURRENT_MOB
 
   export GIT_AUTHOR_NAME="${__git_author_names:5}"
   export GIT_AUTHOR_EMAIL="${__git_author_emails}$(group_mail)"
