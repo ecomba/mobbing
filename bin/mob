@@ -9,11 +9,13 @@ if [[ ! -d "$MOBBING_HOME" ]] ; then
   setup
 elif [[ $# -eq 3 && $1 = "-a" ]] ; then
   add_author $2 "$3"
-  echo "Adding $3 to the list of mobbing authors"
+  print_author_added "$3"
 elif [[ $@ = "-v" ]] ; then
-  echo "Mobbing v$(mob_version)"
-elif [ $# -eq 0 ] ; then
-  help
+  print_version
+elif [[ $1 = "-h" || $1 = "--help" ]] ; then
+  print_help
+elif [[ $# -eq 0 ]] ; then
+  print_current_mob
 else
   do_the_mob $@
 fi
