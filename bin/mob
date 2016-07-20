@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
+BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # First we'll start by collecting all the code we need from the libs.
-source ./lib/help.bash
-source ./lib/setup.bash
-source ./lib/mob.bash
+source $BIN_DIR/../lib/help.bash
+source $BIN_DIR/../lib/setup.bash
+source $BIN_DIR/../lib/mob.bash
 
 if [[ ! -d "$MOBBING_HOME" ]] ; then
   setup
@@ -19,4 +20,3 @@ elif [[ $# -eq 0 ]] ; then
 else
   do_the_mob $@
 fi
-
