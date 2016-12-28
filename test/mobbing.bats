@@ -9,7 +9,7 @@ load helper
   add_pairing_author "ecomba"
 
   [ "$__git_author_names" = " and Enrique Comba Riepenhausen" ]
-  [ "$__git_author_emails" = "ecomba+" ]
+  [ "$__git_author_emails" = "crafters+ecomba" ]
 }
 
 @test "Adds two authors to the git author list" {
@@ -21,7 +21,7 @@ load helper
   add_pairing_author "cgockel"
 
   [ "$__git_author_names" = " and Enrique Comba Riepenhausen and Christoph Gockel" ]
-  [ "$__git_author_emails" = "ecomba+cgockel+" ]
+  [ "$__git_author_emails" = "crafters+ecomba+cgockel" ]
 }
 
 
@@ -34,5 +34,5 @@ load helper
   do_the_mob "cgockel" "ecomba"
 
   [ "$GIT_AUTHOR_NAME" = "Christoph Gockel and Enrique Comba Riepenhausen" ]
-  [ "$GIT_AUTHOR_EMAIL" = "cgockel+ecomba+crafters@8thlight.com" ]
+  [ "$GIT_AUTHOR_EMAIL" = "crafters+cgockel+ecomba@8thlight.com" ]
 }
